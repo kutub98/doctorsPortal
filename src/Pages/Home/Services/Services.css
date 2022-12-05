@@ -1,0 +1,12 @@
+.services {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgba(244, 244, 244, 0.751) 0%, rgba(255, 255, 255, 0.871) 100%),
+    url(../../../Assest/bg/serviceBg.jpg);
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+
+}

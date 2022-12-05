@@ -1,0 +1,11 @@
+.features{
+    padding: 40px 10%;
+    gap: 30px;
+}
+.featuresText{
+    padding: 60px;
+}
+.feImg img{
+    width: 100%;
+    height: 100%;
+}

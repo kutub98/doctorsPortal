@@ -1,0 +1,8 @@
+.myAppointmentText{
+    top: "0px";
+    position: "fixed";
+    width: "100%",
+} 
+.appointmentContainer{
+    position: relative;
+}

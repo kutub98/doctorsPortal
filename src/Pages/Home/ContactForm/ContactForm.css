@@ -1,0 +1,18 @@
+.ContactBox{
+    background-image: url(../../../Assest/bg/appointment.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 100%;
+    height: 450px;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 60px 10%;
+}
+
+@media screen and (max-width: 100px) and (min-width: 750px) {
+    .ContactBox form{
+        width: 100%;
+    }
+}

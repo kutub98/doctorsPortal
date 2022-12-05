@@ -1,0 +1,7 @@
+.testimonialContent{
+    display: flex;
+    justify-content: space-between;
+}
+.testimonialBox{
+   padding: 80px 10%;
+}

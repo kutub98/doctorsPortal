@@ -1,0 +1,22 @@
+.rdp-day_selected {
+  color: white;
+  opacity: 1;
+  background-color: #01a577 !important;
+}
+
+.rdp-day_today:not(.rdp-day_outside) {
+    font-weight: 800 !important;
+    color: red !important;
+}
+
+.rdp-caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    background: #01a577 !important;
+    text-align: left;
+    color: white !important;
+}
+
+

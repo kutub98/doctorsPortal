@@ -1,0 +1,14 @@
+.LoginPageBox{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 40px 10%;
+}
+@media screen and (min-width: 100px) and (max-width: 750px) {
+    .LoginPageBox{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 40px 10%;
+    }
+}

@@ -1,0 +1,122 @@
+/* .dark {
+    background-color: #fff;
+    color: #353;
+  }
+  .light {
+    background-color: #333;
+    color: #fff !important;
+    z-index: 1000;
+  }
+.navBar{
+    background: #e9f1ef;
+    /* position: relative; */
+
+/* .light menuItem li a{
+    color: white;
+}
+.light .navBar{
+    background: #333;
+} */ 
+
+.logo .logo2{
+    display: none;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.BarsBar,
+.menuItems,
+.closeBar,
+.bars,
+.logo .logo1{
+    display: none;
+}
+
+.dashBoard{
+    position: absolute;
+    z-index: 1000;
+    width: 150px;
+    top: 30px;
+    right: 20px;
+    border-radius: 10px;
+
+    background-color: rgb(249, 249, 249);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+
+
+
+
+@media screen and (min-width: 1px) and (max-width: 750px) {
+    .BarsBar,
+    .menuItems,
+    .closeBar,
+    .bars,
+    .logo .logo2{
+        display: block;
+    }
+    .menuItem{
+        
+        display: none !important;
+       
+    }
+    .menuItems{
+        position: absolute;
+        display: block !important;
+        top: 108px !important;
+        right: -1px;
+        background-color: cyan;
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+    }
+    .menuItems li{
+        margin: 10px !important;
+       
+    }
+    
+    
+}
+@media screen and (min-width: 751px) {
+    .logo .logo1{
+        display: block;
+    }
+    .menuItems{
+        display: flex !important;
+        z-index: 1000;
+       
+    }
+    .menuItem{
+        display: flex !important;
+    }
+    .menuItem{
+        display: flex;  
+    }
+    .menuItem li{
+        margin: 0 10px !important;
+    }
+    .menuItems li{
+        margin: 10px !important;
+    }
+    .menuItems li a{
+        font-size: 20px !important;
+        font-weight: 600px !important;
+    }
+}
+
+
+.dashBoard li{
+    display: flex;
+    align-items: center;
+    margin: 10px 8px !important;
+}
+
+
