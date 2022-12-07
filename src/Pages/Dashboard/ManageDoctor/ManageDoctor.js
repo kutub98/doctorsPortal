@@ -11,11 +11,15 @@ const ManageDoctor = () => {
     setDeletingDoctorBtn(null);
   };
 
-  const { data: doctors, isLoading, refetch,} = useQuery({
+  const {
+    data: doctors,
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["newDoctor"],
     queryFn: async () => {
       try {
-        const res = await fetch("http://localhost:5000/addedDoctor", {
+        const res = await fetch("https://doctors-portal-server-wine-one.vercel.app/addedDoctor", {
           headers: {
             authorization: ` bearer ${localStorage.getItem("AccessToken")}`,
           },
@@ -31,7 +35,7 @@ const ManageDoctor = () => {
   const handleDeleteSuccess = (doctor) => {
     console.log(doctor?._id);
 
-    fetch(`http://localhost:5000/deleted/${doctor._id}`, {
+    fetch(`https://doctors-portal-server-wine-one.vercel.app/deleted/${doctor._id}`, {
       method: "DELETE",
       headers: {
         authorization: ` bearer ${localStorage.getItem("AccessToken")}`,

@@ -54,7 +54,7 @@ const Register = () => {
   const SaveUsers = (email, name) => {
     const saveUsers = { name, email };
     console.log(saveUsers);
-    fetch("http://localhost:5000/users", {
+    fetch("https://doctors-portal-server-wine-one.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,14 +73,14 @@ const Register = () => {
 
   //  we use it in hooks
   // const getUserToken = email =>{
-  //   fetch(`http://localhost:5000/jwt?email=${email}`)
+  //   fetch(`https://doctors-portal-server-wine-one.vercel.app/jwt?email=${email}`)
   //   .then(res => res.json())
   //   .then(data =>{
   //     if(data.AccessToken){
   //       localStorage.setItem("AccessToken", data.AccessToken)
   //     navigate('/')
   //     }
-  
+
   //   })
   // }
 

@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
 
+
 const BookingModal = ({ treatment, selected,setTreatment,setSelected, refetch }) => {
   const { name, slots, price } = treatment;
   const date = format(selected, "PP");
@@ -30,7 +31,7 @@ const BookingModal = ({ treatment, selected,setTreatment,setSelected, refetch })
             price
         }
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://doctors-portal-server-wine-one.vercel.app/bookings', {
           method: "POST",
           headers: {
             'content-type': 'application/json'

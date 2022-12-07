@@ -6,29 +6,29 @@ const AllUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users");
+      const res = await fetch("https://doctors-portal-server-wine-one.vercel.app/users");
       const data = await res.json();
       return data;
     },
   });
   console.log(users);
-  const handleForMakingAdmin =(id)=>{
-        fetch(`http://localhost:5000/Alluser/Seller/${id}`, {
-            method: 'PUT',
-            headers: {
-                authorization: `admin ${localStorage.getItem('AccessToken')}`
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-           if(data.modifiedCount > 0){
-            toast.success("Added as a Admin")
-            refetch()
-           }else{
-            toast.error('Sorry You are not authorized')
-           }
-        })
-  }
+  const handleForMakingAdmin = (id) => {
+    fetch(`https://doctors-portal-server-wine-one.vercel.app/Alluser/Seller/${id}`, {
+      method: "PUT",
+      headers: {
+        authorization: `admin ${localStorage.getItem("AccessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Added as a Admin");
+          refetch();
+        } else {
+          toast.error("Sorry You are not authorized");
+        }
+      });
+  };
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4 mt-2">All Users </h1>
@@ -45,15 +45,19 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {
-                users.map( (user, i) => <tr key={user._id}>
-                    <th>{i+1}</th>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>{ user?.role !=='Admin' && <button onClick={()=> handleForMakingAdmin(user._id)}>Make Admin</button>}</td>
-                    <td><button>Delete Usr</button></td>
-                  </tr>)
-            }
+            {users.map((user, i) => (
+              <tr key={user._id}>
+                <th>{i + 1}</th>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>
+                  {user?.role !== "Admin" && <button onClick={() => handleForMakingAdmin(user._id)}>Make Admin</button>}
+                </td>
+                <td>
+                  <button>Delete Usr</button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

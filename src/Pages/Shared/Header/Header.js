@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo1 from "../../../Assest/logo/logo512.png";
-import logo2 from "../../../Assest/logo/Screenshot_1.png";
+import logo1 from "../../../Assest/logo/portal.svg";
+import logo2 from "../../../Assest/logo/portal.svg";
+// import logo2 from "../../../Assest/logo/portal.svg";
 import { MdFormatAlignLeft as RiBarChartHorizontalLine } from "react-icons/md";
 import "./Header.css";
 import { FaUserAlt, FaSignOutAlt, FaMoon, FaSun } from "react-icons/fa";
 import { FaBars, FaWindowClose } from "react-icons/fa";
 import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
+
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(true);
   const [openDashBoard, setOpenDashboard] = useState(false);
@@ -67,9 +69,9 @@ const Header = () => {
         </Link>
       </li>
       <li onClick={() => setOpenMenu(!openMenu)}>
-        <a href="https://www.prothomalo.com/" className=" text-xl">
+        <Link to="/About" className=" text-xl">
           About
-        </a>
+        </Link>
       </li>
       <li onClick={() => setOpenMenu(!openMenu)}>
         <Link className=" text-xl" to="/Reviews">

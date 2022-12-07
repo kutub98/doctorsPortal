@@ -11,11 +11,9 @@ const CheckoutForm = ({ bookings }) => {
   const [processing, SetProcessing] = useState("");
   const [transactionId, SetTransactionId] = useState("");
 
-
-
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://doctors-portal-server-wine-one.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +60,7 @@ const CheckoutForm = ({ bookings }) => {
       },
     });
 
-    if (ConfirmError){
+    if (ConfirmError) {
       setCardError(ConfirmError.message);
       return;
     }
@@ -76,7 +74,7 @@ const CheckoutForm = ({ bookings }) => {
         bookingId: _id,
       };
 
-      fetch("http://localhost:5000/payment", {
+      fetch("https://doctors-portal-server-wine-one.vercel.app/payment", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -84,13 +82,13 @@ const CheckoutForm = ({ bookings }) => {
         },
         body: JSON.stringify(payment),
       })
-        .then(data => data.json())
-        .then(res => {
-          console.log(res)
+        .then((data) => data.json())
+        .then((res) => {
+          console.log(res);
           if (res.insertedId) {
-            SetSuccess('Congrats! your payment completed');
+            SetSuccess("Congrats! your payment completed");
             SetTransactionId(paymentIntent.id);
-        }
+          }
         });
     }
     SetProcessing(false);
@@ -104,12 +102,12 @@ const CheckoutForm = ({ bookings }) => {
           options={{
             style: {
               base: {
-                fontSize: '16px',
-                color: '#424770',
-                '::placeholder': {
-                    color: '#aab7c4',
+                fontSize: "16px",
+                color: "#424770",
+                "::placeholder": {
+                  color: "#aab7c4",
                 },
-            },
+              },
               invalid: {
                 color: "#9e2146",
               },

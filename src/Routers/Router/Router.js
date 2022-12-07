@@ -31,26 +31,56 @@ const Router = () => {
         { path: "/", element: <Home></Home> },
         { path: "Home", element: <Home></Home> },
         { path: "Appointment", element: <Appointments></Appointments> },
-        { path: "About", element: <PrivateRoute><About></About></PrivateRoute> },
+        { path: "About", element: <About></About> },
         { path: "Login", element: <Login></Login> },
         { path: "Reviews", element: <Reviews></Reviews> },
         { path: "Register", element: <Register></Register> },
         { path: "Profile", element: <Profile></Profile> },
-        { path: "EditProfile", element: <EidtProfile></EidtProfile> }
-      ]
+        { path: "EditProfile", element: <EidtProfile></EidtProfile> },
+      ],
     },
-      { path: '/DashBoard', element: <PrivateRoute><DashboardLayOut></DashboardLayOut>
-      </PrivateRoute>,
-      children:[
-        {path: "/DashBoard", element: <MyAppointment></MyAppointment>},
-        {path: "/DashBoard/AllUsers", element: <AdminRoute><AllUsers></AllUsers></AdminRoute>},
-        {path: "/DashBoard/AddADoctor", element: <AdminRoute><AddDoctor></AddDoctor></AdminRoute>},
-        {path: "/DashBoard/ManageDoctor", element: <AdminRoute><ManageDoctor></ManageDoctor></AdminRoute>},
-        {path: "/DashBoard/Payment/:id",
-        loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`), element: <AdminRoute> <PaymentPage></PaymentPage></AdminRoute>}
-      ]}
+    {
+      path: "/DashBoard",
+      element: <DashboardLayOut></DashboardLayOut>,
+      children: [
+        { path: "/DashBoard", element: <MyAppointment></MyAppointment> },
+        {
+          path: "/DashBoard/AllUsers",
+          element: (
+            <AdminRoute>
+              <AllUsers></AllUsers>
+            </AdminRoute>
+          ),
+        },
+        {
+          path: "/DashBoard/AddADoctor",
+          element: (
+            <AdminRoute>
+              <AddDoctor></AddDoctor>
+            </AdminRoute>
+          ),
+        },
+        {
+          path: "/DashBoard/ManageDoctor",
+          element: (
+            <AdminRoute>
+              <ManageDoctor></ManageDoctor>
+            </AdminRoute>
+          ),
+        },
+        {
+          path: "/DashBoard/Payment/:id",
+          loader: ({ params }) => fetch(`https://doctors-portal-server-wine-one.vercel.app/bookings/${params.id}`),
+          element: (
+            <AdminRoute>
+              {" "}
+              <PaymentPage></PaymentPage>
+            </AdminRoute>
+          ),
+        },
+      ],
+    },
   ]);
-  
 
   return <RouterProvider router={router}></RouterProvider>;
 };

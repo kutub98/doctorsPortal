@@ -33,17 +33,17 @@ const AppoinmentBanner = ({selected, setSelected}) => {
     });
   }, []);
   return (
-    <section className="bg-gray-100 text-gray-800 px-[10%] py-30 ">
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-6">
-        <div className="">
-          <div className="w-full">
+    <section className="px-[10%] bg">
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 items-center ">
+        
+          <div className=" h-[350px] bg-slate-300 relative items-center">
             <DayPicker
             mode="single" 
             selected={selected} 
             onSelect={setSelected}/>
           </div>
-        </div>
-        <div className="">
+       
+        <div className="items-center">
           <div className="LottieFiles" ref={container}></div>
         </div>
       </div>
