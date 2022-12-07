@@ -18,7 +18,7 @@ const Services = () => {
         <div>
             <div className="services px-[10%] py-10 text-center ">
                 <h1 className='text-2xl font-semibold text-sky-700 mb-3'>How I Will Take care of you</h1>
-                <h1 className='mb-10 text-6xl font-semibold text-black'>My treatments</h1>
+                <h1 className='mb-10 lg:text-5xl  md:text-6xl sm:text-1xl font-semibold text-black'>My treatments</h1>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
                 {
                     ourServices.map(service => <SingleService key ={service.id} service={service}></SingleService>)

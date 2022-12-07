@@ -1,0 +1,22 @@
+.loginBox,
+.registerBox{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 5px 30px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.loginBox input,
+.registerBox input{
+   border: .5px solid rgba(10, 171, 235, 0.754);
+   background-color: rgb(238, 238, 238);
+}
+
+@media screen and (min-width:100px) and (max-width: 450px){
+    .object-contain{
+        display: none;
+    }
+}

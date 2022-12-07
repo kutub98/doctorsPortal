@@ -1,7 +1,7 @@
 import Lottie from "lottie-web";
 import React, { useContext, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import './Login.css'
+import "./Login.css";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -9,37 +9,38 @@ import toast from "react-hot-toast";
 import useToken from "../../Hooks/useToken";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 
-
-
 const Login = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const { loginWithEP, setLoading } = useContext(AuthContext);
-    const location = useLocation()
-    const navigate =useNavigate()
-    const  [LoginUserEmail, setCreateUserEmail] = useState('')
-    const [token] = useToken(LoginUserEmail)
-    
-    
-    const from = location.state?.from?.pathname || '/';
-  if(token){
-    navigate(from, {replace: true })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const { loginWithEP, setLoading } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [LoginUserEmail, setCreateUserEmail] = useState("");
+  const [token] = useToken(LoginUserEmail);
+  const [resetPassword, setRestPassword] = useState(" ");
+
+  const from = location.state?.from?.pathname || "/";
+  if (token) {
+    navigate(from, { replace: true });
   }
 
-    
-    const handleLogin = (e)=>{
-      loginWithEP(e.email, e.password)
-      .then(res =>{
+  const handleLogin = (e) => {
+    loginWithEP(e.email, e.password)
+      .then((res) => {
         const user = res.user;
-        console.log(user)
-        toast.success('congratulations')
-        setCreateUserEmail(e.email)
-      
-        setLoading(false)
+        console.log(user);
+        toast.success("congratulations");
+        setCreateUserEmail(e.email);
+
+        setLoading(false);
       })
-      .catch(error => console.error(error))
-      toast("something is wrong")
-    }
-    const container = useRef(null);
+      .catch((error) => console.error(error));
+      
+  };
+  const container = useRef(null);
   useEffect(() => {
     Lottie.loadAnimation({
       container: container.current,
@@ -56,35 +57,54 @@ const Login = () => {
       },
     });
   }, []);
+
+  const forgotPassword = () => {
+    const email =resetPassword;
+    console.log(email);
+  };
+
   return (
     <div className="LoginPageBox">
-        <div className="text-center">
-            <h1 className="text-2xl text-sky-600 font-semibold my-5">Welcome to Dr.Belal's Treatment</h1>
-            <div className=" object-contain h-72 sm:h-80 lg:h-96  2xl:h-128 LottieFiles" ref={container}></div>
-        </div>
-      <div className="">
+      <div className="text-center">
+        <h1 className="text-2xl text-sky-600 font-semibold my-5">Welcome to Dr.Belal's Treatment</h1>
+        <div className=" object-contain h-72 sm:h-80 lg:h-96  2xl:h-128 LottieFiles" ref={container}></div>
+      </div>
+      <div className="loginBox">
         <h1 className="text-2xl font-bold text-center">Login</h1>
-        <form onSubmit={handleSubmit(handleLogin)}className="space-y-6 ng-untouched ng-pristine ng-valid">
-        <div className="space-y-1 text-sm">
+        <form onSubmit={handleSubmit(handleLogin)} className="space-y-6 ng-untouched ng-pristine ng-valid">
+          <div className="space-y-1 text-sm">
             <label for="username" className="block text-gray-600">
               Email
             </label>
-            <input type="email" {...register("email", { required:"Email is required" })} placeholder="First name" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-green-600"/>
-            {errors.email&& <p role="alert">{errors.email?.message}</p>}
+            <input
+              onBlur={(e) => setRestPassword(e.target.value)}
+              type="email"
+              {...register("email", { required: "Email is required" })}
+              placeholder="First name"
+              className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-green-600"
+            />
+            {errors.email && <p role="alert">{errors.email?.message}</p>}
           </div>
           <div className="space-y-1 text-sm">
             <label for="password" className="block text-gray-600">
               Password
             </label>
-            <input type="password" {...register("password", { required: "Password is required" })} placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-green-600"/>
-            {errors.password&& <p role="alert">{errors.password?.message}</p>}
+            <input
+              type="password"
+              {...register("password", { required: "Password is required" })}
+              placeholder="Password"
+              className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-green-600"
+            />
+            {errors.password && <p role="alert">{errors.password?.message}</p>}
             <div className="flex justify-end text-xs text-gray-600">
-              <Link href="#">Forgot Password?</Link>
+              <Link onClick={forgotPassword}>
+                Forgot Password?
+              </Link>
             </div>
           </div>
           <button className="block w-full p-3 text-center rounded-sm text-gray-50 bg-sky-600">Sign in</button>
         </form>
-        
+
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
           <p className="px-3 text-sm text-gray-600">Login with social accounts</p>
@@ -109,7 +129,9 @@ const Login = () => {
         </div>
         <p className="text-xs text-center sm:px-6 text-gray-600">
           Don't have an account?
-          <Link to="register" className="underline text-gray-800">Create an account</Link>
+          <Link to="/register" className="underline text-gray-800">
+            Create an account
+          </Link>
         </p>
       </div>
     </div>

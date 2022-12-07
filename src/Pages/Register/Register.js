@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 import useToken from "../../Hooks/useToken";
+import './RegisterBox.css'
 
 const Register = () => {
   const { registration, updateUser } = useContext(AuthContext);
@@ -26,15 +27,16 @@ const Register = () => {
   const handleRegister = (e) => {
     console.log(e);
     // setSignUpError("");
-    registration(e.email, e.password, e.name)
+    registration(e.email, e.password , e.Name,)
       .then((res) => {
         const user = res.user;
+        console.log(user)
         const userInfo = {
-          displayName: e.name,
+          displayName: e.Name,
           email: e.email,
-          PhotoURL: e.PhotoURL,
+          photoURL: e.PhotoURL,
         };
-
+        console.log(userInfo)
         updateUser(userInfo)
           .then(() => {
             SaveUsers(e.email, e.Name);
@@ -103,7 +105,7 @@ const Register = () => {
   }, []);
   return (
     <div className="LoginPageBox">
-      <div className="">
+      <div className="registerBox">
         <h1 className="text-2xl font-bold text-center">Create an account</h1>
         <form onSubmit={handleSubmit(handleRegister)} className="space-y-6 ng-untouched ng-pristine ng-valid">
           {/* This name field =============================*/}

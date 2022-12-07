@@ -20,8 +20,8 @@
 
 .logo .logo2{
     display: none;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -34,6 +34,11 @@
 .bars,
 .logo .logo1{
     display: none;
+}
+.closeBar,
+.bars {
+    background-color: aliceblue !important;
+    color: black !important;
 }
 
 .dashBoard{
@@ -73,7 +78,8 @@
         display: block !important;
         top: 108px !important;
         right: -1px;
-        background-color: cyan;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        background-color: rgb(255, 255, 255);
         width: 100%;
         text-align: center;
         z-index: 1000;

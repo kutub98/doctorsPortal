@@ -41,16 +41,12 @@ const Header = () => {
       <li className="flex items-center">
         <Link to="/DashBoard" className="flex items-center">
           {" "}
-          <FaUserAlt /> View Profile
+           <i class="fa fa-dashboard" aria-hidden="true"> Dashboard</i>
         </Link>
       </li>
-      <li className="flex items-center">
-        <Link className="flex items-center">
-          {" "}
-          <FaSignOutAlt />
-          Log out
-        </Link>
-      </li>
+      <li onClick={LogOUT}>
+            <Link className=" text-xl">Logout</Link>
+          </li>
     </React.Fragment>
   );
 
@@ -80,9 +76,7 @@ const Header = () => {
       </li>
       {user?.uid ? (
         <>
-          <li onClick={LogOUT}>
-            <Link className=" text-xl">Logout</Link>
-          </li>
+          
           <li onClick={() => setOpenMenu(!openMenu)}>
             {/* <Link to="/Profile" className=" text-xl"> */}
             <div className="avatar online " onClick={() => setOpenDashboard(!openDashBoard)}>
@@ -129,10 +123,12 @@ const Header = () => {
       <nav className=" flex justify-between py-6 px-[10%] items-center">
         <div className="logo flex">
           <Link to="/home">
-            <img src={logo1} alt="" className=" logo1 w-56 h-16" />
+            <img src={logo1} alt="" className=" logo1 w-32 h-6" />
           </Link>
           <label htmlFor="dashBoardDrawer">
-          <RiBarChartHorizontalLine className="logo2 w-56 h-16 text-black"></RiBarChartHorizontalLine>
+          <RiBarChartHorizontalLine className="logo2 w-32 h-6 text-black"></RiBarChartHorizontalLine>
+          
+        
           </label>
           <Link to="/home">
             <img src={logo2} alt="" className=" logo2 w-36 h-16" />

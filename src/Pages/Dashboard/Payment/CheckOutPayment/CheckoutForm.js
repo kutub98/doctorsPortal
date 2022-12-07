@@ -74,7 +74,7 @@ const CheckoutForm = ({ bookings }) => {
         bookingId: _id,
       };
 
-      fetch("https://doctors-portal-server-wine-one.vercel.app/payment", {
+      fetch("payment", {
         method: "POST",
         headers: {
           "content-type": "application/json",
