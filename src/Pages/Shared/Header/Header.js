@@ -36,19 +36,19 @@ const Header = () => {
 
   //dashBoard
 
-  const dashboardMenu = (
-    <React.Fragment className="flex items-center">
-      <li className="flex items-center">
-        <Link to="/DashBoard" className="flex items-center">
-          {" "}
-           <i class="fa fa-dashboard" aria-hidden="true"> Dashboard</i>
-        </Link>
-      </li>
-      <li onClick={LogOUT}>
-            <Link className=" text-xl">Logout</Link>
-          </li>
-    </React.Fragment>
-  );
+  // const dashboardMenu = (
+  //   <React.Fragment className="flex items-center">
+  //     <li className="flex items-center">
+  //       <Link to="/DashBoard" className="flex items-center">
+  //         {" "}
+  //          <i class="fa fa-dashboard" aria-hidden="true"> Dashboard</i>
+  //       </Link>
+  //     </li>
+  //     <li onClick={LogOUT}>
+  //           <Link className=" text-xl">Logout</Link>
+  //         </li>
+  //   </React.Fragment>
+  // );
 
   /// menuItems
   const userPic = "https://www.nicepng.com/png/detail/136-1366211_group-of-10-guys-login-user-icon-png.png";
@@ -76,34 +76,32 @@ const Header = () => {
       </li>
       {user?.uid ? (
         <>
-          
-          <li onClick={() => setOpenMenu(!openMenu)}>
-            {/* <Link to="/Profile" className=" text-xl"> */}
-            <div className="avatar online " onClick={() => setOpenDashboard(!openDashBoard)}>
-              <div className="w-8  rounded-full">
-                <img src={user?.uid ? user?.photoURL : userPic} alt="kutub" />
-                {openDashBoard ? <ul className="dashBoard">{dashboardMenu}</ul> : null}
-                {/* {console.log(openDashBoard)} */}
-              </div>
-            </div>
-            {/* </Link> */}
+        <li className="flex items-center bg-black text-white py-2 px-3 rounded" onClick={LogOUT}>
+            <Link className=" text-xl">Logout</Link>
           </li>
+          <li className="flex items-center bg-sky-400 text-white py-2 px-3 rounded">
+        <Link to="/DashBoard" className="flex text-xl items-center">
+        
+          Dashboard
+        </Link>
+      </li>
+      
         </>
       ) : (
         <>
-          <li>
+          <li className="flex items-center bg-sky-400 text-white py-2 px-3 rounded">
             <Link to="/Login" onClick={() => setOpenMenu(!openMenu)} className=" text-xl">
-              login
+              Login
             </Link>
           </li>
-          <li onClick={() => setOpenMenu(!openMenu)}>
+          <li className="flex items-center bg-black text-white py-2 px-3 rounded"  onClick={() => setOpenMenu(!openMenu)}>
             <Link className=" text-xl" to="/Register">
               Register
             </Link>
           </li>
         </>
       )}
-      <li>
+      {/* <li>
         <div className={`Header ${theme}`}>
           {darkLight ? (
             <button onClick={toggleTheme}>
@@ -115,7 +113,7 @@ const Header = () => {
             </button>
           )}
         </div>
-      </li>
+      </li> */}
     </React.Fragment>
   );
   return (
@@ -142,7 +140,7 @@ const Header = () => {
             </div> */}
           </Link>
         </div>
-        {openMenu ? <ul className="menuItem">{menuItem}</ul> : <ul className="menuItems">{menuItem}</ul>}
+        {openMenu ? <ul className="menuItem items-center">{menuItem}</ul> : <ul className="menuItems items-center">{menuItem}</ul>}
         <div className="relative BarsBar" onClick={() => setOpenMenu(!openMenu)}>
           {openMenu ? (
             <button className="bars ">

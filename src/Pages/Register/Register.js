@@ -115,11 +115,11 @@ const Register = () => {
             </label>
             <input
               type="text"
-              {...register("Name", { required: "Email is required" }, useWatch)}
+              {...register("Name", { required: "Name is required" }, useWatch)}
               placeholder="Name"
               className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-green-600"
             />
-            {errors.email && <p role="alert">{errors.email?.message}</p>}
+            {errors.Name && <p className="text-red-600" role="alert">{errors.Name?.message}</p>}
           </div>
           {/* This email field =============================*/}
           <div className="space-y-1 text-sm">
@@ -132,7 +132,7 @@ const Register = () => {
               placeholder="First name"
               className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-green-600"
             />
-            {errors.email && <p role="alert">{errors.email?.message}</p>}
+            {errors.email && <p className="text-red-600" role="alert">{errors.email?.message}</p>}
           </div>
 
           {/* This password field =======================*/}
@@ -149,23 +149,23 @@ const Register = () => {
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-green-600"
             />
-            {errors.password && <p role="alert">{errors.password?.message}</p>}
+            {errors.password && <p className="text-red-600" role="alert">{errors.password?.message}</p>}
           </div>
-          <div className="space-y-1 text-sm">
+          {/* <div className="space-y-1 text-sm">
             <label for="ConfirmPassword" className="block text-gray-600">
               Confirm Password
             </label>
             <input
               type="password"
               {...register("ConfirmPassword", {
-                required: "Password is required",
+              required: "Password is required",
                 // minLength: { value: password === ConfirmPassword, message: "Password must be SIX characters" },
               })}
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-green-600"
             />
-            {/* {errors.password && <p role="alert">{errors.password?.message}</p>} */}
-          </div>
+            {errors.ConfirmPassword && <p className="text-red-600" role="alert">{errors.password?.message}</p>}
+          </div> */}
           {signUpError && <p className="text-red-600">{signUpError}</p>}
           <button className="block w-full p-3 text-center rounded-sm text-gray-50 bg-sky-600">Create Account</button>
         </form>

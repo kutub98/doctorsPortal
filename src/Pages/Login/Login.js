@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import useToken from "../../Hooks/useToken";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 const Login = () => {
   const {
@@ -15,12 +16,13 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { loginWithEP, setLoading } = useContext(AuthContext);
+  const { auth, loginWithEP, setLoading } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const [LoginUserEmail, setCreateUserEmail] = useState("");
   const [token] = useToken(LoginUserEmail);
-  const [resetPassword, setRestPassword] = useState(" ");
+  const [resetPassword, setRestPassword] = useState("");
+  const [error , setError] = useState()
 
   const from = location.state?.from?.pathname || "/";
   if (token) {
@@ -37,7 +39,8 @@ const Login = () => {
 
         setLoading(false);
       })
-      .catch((error) => console.error(error));
+      
+      .catch((error) => console.error(setError(error.message)));
       
   };
   const container = useRef(null);
@@ -58,11 +61,21 @@ const Login = () => {
     });
   }, []);
 
-  const forgotPassword = () => {
-    const email =resetPassword;
-    console.log(email);
-  };
+  const emailValue = e =>{
+    const email = e.target.value;
+    setRestPassword(email)
+   
+  }
 
+const forgotPassword =(e)=>{
+  if(!resetPassword){
+    sendPasswordResetEmail(auth, resetPassword)
+    toast.error('Please Check your Email and Reset Password')}
+  // }else{
+  //   toast.error('Please provide your Email ')
+  // }
+  
+}
   return (
     <div className="LoginPageBox">
       <div className="text-center">
@@ -79,11 +92,12 @@ const Login = () => {
             <input
               onBlur={(e) => setRestPassword(e.target.value)}
               type="email"
+              onChange={emailValue}
               {...register("email", { required: "Email is required" })}
               placeholder="First name"
               className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-green-600"
             />
-            {errors.email && <p role="alert">{errors.email?.message}</p>}
+            {errors.email && <p className="text-red-600" role="alert">{errors.email?.message}</p>}
           </div>
           <div className="space-y-1 text-sm">
             <label for="password" className="block text-gray-600">
@@ -95,16 +109,18 @@ const Login = () => {
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-green-600"
             />
-            {errors.password && <p role="alert">{errors.password?.message}</p>}
+            {errors.password && <p className="text-red-600" role="alert">{errors.password?.message}</p>}
             <div className="flex justify-end text-xs text-gray-600">
               <Link onClick={forgotPassword}>
                 Forgot Password?
               </Link>
             </div>
+            <p className="text-red-600 text-1xl font-bold">{ error}</p>
           </div>
+         
           <button className="block w-full p-3 text-center rounded-sm text-gray-50 bg-sky-600">Sign in</button>
         </form>
-
+      
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
           <p className="px-3 text-sm text-gray-600">Login with social accounts</p>
