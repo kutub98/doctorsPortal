@@ -6,7 +6,9 @@ import Header from '../Pages/Shared/Header/Header';
 const Main = () => {
     return (
         <div>
-            <Header></Header>
+           <div className=' sticky top-0 w-full z-50'>
+           <Header></Header>
+           </div>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>

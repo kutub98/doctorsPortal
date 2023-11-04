@@ -3,8 +3,8 @@ import './Review.css'
 const Reviews = ({ review }) => {
   const { message, name, img } = review;
   return (
-    <div>
-      <div className="container REVIEWS flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
+    <div className="">
+      <div className=" container px-8 REVIEWS flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
         <div className="p-4 space-y-2 text-sm text-gray-600">
           <p>{message}</p>
         </div>

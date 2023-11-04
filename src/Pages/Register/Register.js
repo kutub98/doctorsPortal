@@ -5,16 +5,13 @@ import { useForm, useWatch } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
+
 import useToken from "../../Hooks/useToken";
 import './RegisterBox.css'
 
 const Register = () => {
   const { registration, updateUser } = useContext(AuthContext);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const {register,handleSubmit, formState: { errors },} = useForm();
   const [signUpError, setSignUpError] = useState("");
   const navigate = useNavigate();
   const [creteUserEmail, setCreateUserEmail] = useState("");

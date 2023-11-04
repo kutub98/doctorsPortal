@@ -4,11 +4,11 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <div className='FooterBox'>
-           <footer className="px-4 divide-y text-gray-800">
-	<div className="container ">
+        <div className='FooterBox container mx-auto max-w-7xl'>
+           <footer className=" divide-y text-gray-800">
+	<div className="">
 		
-		<div className="grid grid-cols-1 sm:grid-cols-2 justify-center my-2 mx-auto lg:grid-cols-4 px-[10%] md:grid-cols-3">
+		<div className="grid grid-cols-1 sm:grid-cols-2 justify-center my-2 mx-auto lg:grid-cols-4 px-8 md:grid-cols-2">
 			<div className="">
 				<h3 className="tracking-wide uppercase text-gray-900">Product</h3>
 				<ul className="space-y-1">
@@ -73,7 +73,7 @@ const Footer = () => {
 			</div>
 		</div>
 	</div>
-	<div className="py-6 text-sm text-center text-gray-600">© 1968 Company Co. All rights reserved.</div>
+	<div className=" text-sm text-center text-gray-600">© 1968 Company Co. All rights reserved.</div>
 </footer>
         </div>
     );

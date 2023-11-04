@@ -3,7 +3,7 @@ import './ContactForm.css'
 const ContactForm = () => {
     return (
         <div className="ContactBox ">
-            <form className="flex flex-col py-6 w-1/2 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine my-4 mx-auto ng-valid">
+            <form className="flex flex-col py-6  lg:w-1/2 xl:w-1/2 md:w-1/2 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine my-4 mx-auto ng-valid px-8">
 			<label className="block">
 				<span className="mb-1 text-white font-bold">Full name</span>
 				<input type="text" placeholder="Leroy Jenkins" className="block w-full rounded-md p-3 shadow-sm focus:ring focus:ring-opacity-75 focus:ring-green-600 bg-gray-100" />

@@ -16,7 +16,8 @@ const Testimonial = () => {
     ]
 
     return (
-        <div className='testimonialBox'>
+<div className='container mx-auto'>
+<div className='testimonialBox'>
             <div className="testimonialContent">
                 <div className="topLet">
                     <h1 className='text-green-500 font-bold'>Testimonial</h1>
@@ -32,6 +33,7 @@ const Testimonial = () => {
                     }
             </div>
         </div>
+</div>
     );
 };
 

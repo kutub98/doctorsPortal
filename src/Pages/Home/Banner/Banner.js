@@ -22,7 +22,8 @@ const Banner = () => {
     });
   }, []);
   return (
-    <section className="bg-gray-100 text-gray-800 bannerSection">
+      <div className="container mx-auto px-8">
+              <section className="bg-gray-100 text-gray-800 bannerSection px-8">
       <div className="container flex flex-col justify-center px-[8%] mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
         <div className="flex flex-col justify-center text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
           <h1 className="text-5xl font-bold text-black leading-none sm:text-6xl">FOR YOU WITH YOU</h1>
@@ -42,6 +43,7 @@ const Banner = () => {
         </div>
       </div>
     </section>
+      </div>
   );
 };
 

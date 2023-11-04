@@ -24,8 +24,8 @@ const MyAppointment = () => {
   // const {Email, PhoneNumber,Slots,TreatmentName, appointmentDate}= bookings;
   return (
     <div className="appointmentContainer">
-      <div className="text-3xl mb-5 font-bold myAppointmentText ">My Appointment</div>
-      <div className="overflow-x-auto">
+      <div className="text-3xl mb-5 font-bold myAppointmentText z-0">My Appointment</div>
+      {/* <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
             <tr>
@@ -59,7 +59,7 @@ const MyAppointment = () => {
             ))}
           </tbody>
         </table>
-      </div>
+      </div> */}
     </div>
   );
 };

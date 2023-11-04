@@ -4,7 +4,7 @@ import profile from '../../../Assest/Profile/belal.png'
 import PrimaryButton from '../../PrimaryButton/PrimaryButton'
 const AboutBelal = () => {
     return (
-        <div>
+        <div className='container mx-auto px-8 my-10 mt-40'>
             <div className="drBelal">
                 <div className="img w-1/2 hidden lg:block">
                     <img src={profile} alt="" />
