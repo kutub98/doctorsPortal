@@ -1,31 +1,32 @@
-import { useQuery } from "@tanstack/react-query";
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthContext/AuthProvider';
 
-import "./MyAppointment.css";
+import './MyAppointment.css';
 const MyAppointment = () => {
   const { user } = useContext(AuthContext);
   const uri = `https://doctors-portal-server-wine-one.vercel.app/bookings?email=${user?.email}`;
 
   const { data: bookings = [] } = useQuery({
-    queryKey: ["bookings", user?.email],
+    queryKey: ['bookings', user?.email],
     queryFn: async () => {
       const res = await fetch(uri, {
         headers: {
-          authorization: ` bearer ${localStorage.getItem("AccessToken")}`,
+          authorization: ` bearer ${localStorage.getItem('AccessToken')}`,
         },
       });
       const data = await res.json();
       return data;
     },
   });
-  console.log("booking", bookings);
-  // const {Email, PhoneNumber,Slots,TreatmentName, appointmentDate}= bookings;
+
   return (
-    <div className="appointmentContainer">
-      <div className="text-3xl mb-5 font-bold myAppointmentText z-0">My Appointment</div>
-      {/* <div className="overflow-x-auto">
+    <div className="appointmentContainer bg-slate-200 lg:mt-10 -z-10">
+      <div className="text-3xl mb-5 font-bold myAppointmentText z-0">
+        My Appointment
+      </div>
+      <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
             <tr>
@@ -50,16 +51,23 @@ const MyAppointment = () => {
                 <td>
                   {booking.price && !booking.paid && (
                     <Link to={`/DashBoard/Payment/${booking._id}`}>
-                      <p className="btn btn-sm bg-green-600 text-white">Pay now</p>
+                      <p className="btn btn-sm bg-green-600 text-white">
+                        Pay now
+                      </p>
                     </Link>
                   )}
-                  {booking.price && booking.paid && <button className="btn btn-xm bg-success text-white"> Paid</button>}
+                  {booking.price && booking.paid && (
+                    <button className="btn btn-xm bg-success text-white">
+                      {' '}
+                      Paid
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div> */}
+      </div>
     </div>
   );
 };

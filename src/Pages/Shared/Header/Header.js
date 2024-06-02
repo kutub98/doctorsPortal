@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo1 from '../../../Assest/logo/customLogo.png';
-import logo2 from '../../../Assest/logo/portal.svg';
+
 import { MdFormatAlignLeft as RiBarChartHorizontalLine } from 'react-icons/md';
 import './Header.css';
 import { FaBars, FaWindowClose } from 'react-icons/fa';
@@ -10,10 +10,6 @@ import { AuthContext } from '../../../Context/AuthContext/AuthProvider';
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(true);
   const { user, LogOut } = useContext(AuthContext);
-
-  // useEffect(() => {
-  //   document.body.className = theme;
-  // }, [theme]);
 
   const LogOUT = () => {
     LogOut()
@@ -45,34 +41,39 @@ const Header = () => {
       </li>
       {user?.uid ? (
         <>
-          <li
-            className="flex items-center bg-black text-white py-2 px-3 rounded"
-            onClick={LogOUT}
-          >
-            <Link className=" text-xl">Logout</Link>
+          <li className="flex items-center " onClick={LogOUT}>
+            <Link className=" text-xl bg-black text-white py-2 px-3 rounded mx-auto">
+              Logout
+            </Link>
           </li>
-          <li className="flex items-center bg-sky-400 text-white py-2 px-3 rounded">
-            <Link to="/DashBoard" className="flex text-xl items-center">
+          <li className="flex items-center ">
+            <Link
+              to="/DashBoard"
+              className="flex bg-sky-400 text-white py-2 px-3 rounded text-xl items-center mx-auto"
+            >
               Dashboard
             </Link>
           </li>
         </>
       ) : (
         <>
-          <li className="flex items-center bg-sky-400 text-white py-2 px-3 rounded">
+          <li className="flex items-center  text-white ">
             <Link
               to="/Login"
               onClick={() => setOpenMenu(!openMenu)}
-              className=" text-xl"
+              className=" text-xl mx-auto bg-sky-400 py-2 px-3 rounded"
             >
               Login
             </Link>
           </li>
           <li
-            className="flex items-center bg-black text-white py-2 px-3 rounded"
+            className="flex items-center "
             onClick={() => setOpenMenu(!openMenu)}
           >
-            <Link className=" text-xl" to="/Register">
+            <Link
+              className=" text-xl bg-black text-white mx-auto py-2 px-3 rounded"
+              to="/Register"
+            >
               Register
             </Link>
           </li>
@@ -81,7 +82,7 @@ const Header = () => {
     </React.Fragment>
   );
   return (
-    <div className="navBar nabBg">
+    <div className="navBar nabBg z-[999]">
       <nav className="  container mx-auto flex justify-between py-6 px-8 items-center">
         <div className="">
           {user?.displayName ? (
@@ -90,7 +91,7 @@ const Header = () => {
             </Link>
           ) : (
             <Link to="/home">
-              <img src={logo1} alt="" className=" w-16 h-16" />
+              <img src={logo1} alt="" className=" w-20 h-20" />
             </Link>
           )}
         </div>
