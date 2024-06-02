@@ -135,7 +135,7 @@ const Footer = () => {
         </div>
         <div className="py-6 text-sm text-center text-gray-600">
           © {currentYear} All rights reserved By{' '}
-          <a className="text-pink-500" href="https://jmkutub1.web.app/">
+          <a className="text-sky-500" href="https://jmkutub1.web.app/">
             Kutub Uddin
           </a>
           .
